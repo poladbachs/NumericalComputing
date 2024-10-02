@@ -1,0 +1,6 @@
+Degree Centrality after isolation for top 5 nodes:
+Node 10: New Degree Centrality = 0
+Node 3: New Degree Centrality = 0
+Node 7: New Degree Centrality = 0
+Node 12: New Degree Centrality = 0
+Node 5: New Degree Centrality = 0

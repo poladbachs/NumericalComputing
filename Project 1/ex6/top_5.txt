@@ -1,0 +1,7 @@
+The graph contains 450 nodes.
+Top 5 nodes with their corresponding URLs and with highest degree centrality:
+Node 10: URL = https://species.wikimedia.org/wiki/Main_Page, Degree Centrality = 744
+Node 3: URL = https://www.wikidata.org/wiki/Special:EntityPage/Q5296, Degree Centrality = 743
+Node 7: URL = https://meta.wikimedia.org/wiki/Main_Page, Degree Centrality = 743
+Node 12: URL = https://www.wikidata.org/wiki/Wikidata:Main_Page, Degree Centrality = 742
+Node 5: URL = https://foundation.wikimedia.org/wiki/Home, Degree Centrality = 738
