@@ -1,6 +1,6 @@
-addpath('/Users/polad/Documents/NUMERICAL/project_1_students');
+addpath('/Users/polad/NumericalComputing/Project 1');
 
-[U2, G2] = surfer('https://www.epfl.ch/education/master/programs/financial-engineering/', 20);
+[U2, G2] = surfer('https://openquant.co/', 20);
 
 pagerank(U2, G2);
 
