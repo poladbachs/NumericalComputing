@@ -39,6 +39,8 @@ while norm(x - prevx) > limit
     iterations = iterations + 1;
 end
 % -------------------------------------------------------------------------
+iter = ['iteration is ', num2str(iterations)]
+disp(iter)
 
 % Bar graph of page rank.
 shg
@@ -47,17 +49,17 @@ title('Page Rank')
 
 % Print URLs in page rank order.
 
- if nargout < 1
-    [~,q] = sort(-x);
-    disp('     page-rank  in  out  url')
-    k = 1;
-    maxN = length(U);
-    while  (k <= maxN) && (x(q(k)) >= .005)
-        disp(k)
-       j = q(k);
-       temp1  = r(j);
-       temp2  = c(j);
-       disp(fprintf(' %3.0f %8.4f %4.0f %4.0f  %s', j,x(j),full(temp1),full(temp2),U{j}))
-       k = k+1;
-    end
-end
+% if nargout < 1
+%    [~,q] = sort(-x);
+%    disp('     page-rank  in  out  url')
+%    k = 1;
+%    maxN = length(U);
+%    while  (k <= maxN) && (x(q(k)) >= .005)
+%        disp(k)
+%       j = q(k);
+%       temp1  = r(j);
+%       temp2  = c(j);
+%       disp(fprintf(' %3.0f %8.4f %4.0f %4.0f  %s', j,x(j),full(temp1),full(temp2),U{j}))
+%       k = k+1;
+%    end
+% end

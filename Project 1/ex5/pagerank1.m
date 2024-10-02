@@ -1,9 +1,9 @@
-function x = pagerank1(U, G, p)
+function [x, iterations] = pagerank1(U, G, p)
 % PAGERANK1  Google's PageRank using Power Method
 % pagerank1(U,G,p) uses the URLs and adjacency matrix produced by SURFER,
 % together with a damping factor p (default is .85), to compute and plot
 % a bar graph of page rank, and print the dominant URLs in page rank order.
-% x = pagerank1(U,G,p) returns the page ranks instead of printing.
+% x = pagerank1(U,G,p) returns the page ranks and number of iterations.
 % See also SURFER, SPY.
 
 if nargin < 3, p = 0.85; end
@@ -20,7 +20,6 @@ D = sparse(k, k, 1 ./ c(k), n, n);
 e = ones(n, 1);
 I = speye(n,n);
 
-% ---------------------------------- POWER METHOD ------------------------------
 % Initialize variables for power method
 A = p * G * D;
 z = ((1 - p) * (c ~= 0) + (c == 0)) / n;
@@ -29,6 +28,7 @@ prevx = zeros(n, 1);
 
 % Set limit for convergence
 limit = 0.00001;
+iterations = 0;
 
 disp('Using Power Method Implementation\n');
 
@@ -36,8 +36,12 @@ disp('Using Power Method Implementation\n');
 while norm(x - prevx) > limit
     prevx = x;
     x = A * x + e * (z * x);
+    iterations = iterations + 1;
 end
-% -------------------------------------------------------------------------
+
+% Display iteration count
+iter = ['Iterations (Power Method): ', num2str(iterations)];
+disp(iter);
 
 % Normalize so that sum(x) == 1.
 x = x / sum(x);
@@ -61,4 +65,5 @@ if nargout < 1
         disp(fprintf(' %3.0f %8.4f %4.0f %4.0f  %s', j, x(j), full(temp1), full(temp2), U{j}));
         k = k + 1;
     end
+end
 end
