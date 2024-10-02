@@ -1,0 +1,40 @@
+     page-rank  in  out  url
+     1
+
+   8   0.2410   14    1  https://search.usi.ch/it    49
+
+     2
+
+   3   0.1130    4    1  https://www.usi.ch/it/rss.xml    54
+
+     3
+
+   9   0.0459   14    4  https://www.desk.usi.ch/it    51
+
+     4
+
+   6   0.0459   14   19  https://usi.ch/it    42
+
+     5
+
+   7   0.0407   14    0  https://www.usi.ch/sites/all/themes/usiclean/img/bollino-usi.svg    89
+
+     6
+
+   2   0.0407   14    0  https://app.usercentrics.eu/browser-ui/latest/loader.js data-version=    94
+
+     7
+
+  11   0.0362   13   16  https://www.usi.ch/originalnode/4073    61
+
+     8
+
+  12   0.0362   13   16  https://www.usi.ch/originalnode/574    60
+
+     9
+
+  14   0.0362   13   16  https://www.usi.ch/originalnode/713    60
+
+    10
+
+  17   0.0362   13   16  https://www.usi.ch/originalnode/539    60
