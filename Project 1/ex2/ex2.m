@@ -1,6 +1,7 @@
 addpath('/Users/polad/Documents/NUMERICAL/project_1_students');
-[U1, G1] = surfer('https://usi.ch', 20);
 
-pagerank(U1, G1);
+[U2, G2] = surfer('https://www.epfl.ch/education/master/programs/financial-engineering/', 20);
 
-spy(G1);
+pagerank(U2, G2);
+
+spy(G2);
