@@ -1,0 +1,11 @@
+% This script loads a symmetric positive definite matrix, applies the 
+% reverse Cuthill–McKee ordering, visualizes the original and permuted
+% matrices, computes Cholesky factorizations, and compares the results.
+
+clear; clc; close all;
+
+load('A_SymPosDef.mat');
+
+figure;
+spy(A);
+title('Original Matrix');
