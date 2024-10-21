@@ -6,5 +6,5 @@ n = 6;
 G = sparse(i, j, 1, n, n);
 full(G);
 
-p = 0.99;
-pagerank2(U, G, p);
+p = 0.85;
+pagerank(U, G, p);
