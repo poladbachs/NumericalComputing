@@ -1,3 +1,5 @@
+addpath('/Users/polad/NumericalComputing/Project 2/householder/');
+
 load('housegraph.mat');
 
 [x, iterations] = pagerank1_authors(A, 0.85);
