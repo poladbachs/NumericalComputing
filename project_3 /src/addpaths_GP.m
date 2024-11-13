@@ -5,3 +5,4 @@ addpath ../datasets/Mesh_generation/
 addpath ../datasets/2d_3d_meshes
 addpath ../external/
 addpath Visualization/
+addpath '/Users/polad/NumericalComputing/project_3 /external'
