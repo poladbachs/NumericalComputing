@@ -153,8 +153,6 @@ for c = 1:nc
         figure(1); clf;
         gplotmap(W, coords, Inertial16);
         title('Inertial Bisection - 16 Partitions');
-        disp(' Hit space to continue ...');
-        pause;
     end
     
     fprintf('%6d %6d %10d %6d %10d %6d %10d %6d\n',spectral8cutsize,spectral16cutsize,...
