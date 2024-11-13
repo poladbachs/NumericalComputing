@@ -10,6 +10,9 @@ function [part1,part2] = bisection_metis(A,xy,picture)
 %
 % See also external/metismex for all the Metis options. 
 
+if nargin < 3
+    picture = 0;
+end
 
 map = metismex('PartGraphRecursive',A,2);
 [part1,part2] = other(map);
