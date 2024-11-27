@@ -16,13 +16,12 @@ options.diagcomp = alpha;
 height_A = transpose(A) * A;
 height_B = transpose(A) * b;
 Q = ichol(height_A, options);
-P = transpose(Q) * Q;
 
 % custom myCG
 [x_myCG, rvec_myCG] = myCG(A, b, guess, max_itr, tol);
 
 % PCG
-[x_pcg, ~, ~, iter, rvec_pcg] = pcg(height_A, height_B, tol, max_itr);
+[x_pcg, ~, ~, iter, rvec_pcg] = pcg(height_A, height_B, tol, max_itr, Q, Q');
 
 figure;
 imagesc(reshape(img, [height, height]));
