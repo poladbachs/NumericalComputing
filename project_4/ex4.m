@@ -53,3 +53,20 @@ semilogy(rvec_pcg);
 title('In-built PCG Convergence Test');
 xlabel('Iterations');
 ylabel('Residual');
+
+% iteration range for each solver
+iterations_myCG = 1:length(rvec_myCG);
+iterations_pcg = 1:length(rvec_pcg);
+
+% Combined plot
+figure;
+semilogy(iterations_myCG, rvec_myCG, 'b-', 'LineWidth', 1.5);
+hold on;
+semilogy(iterations_pcg, rvec_pcg, 'r--', 'LineWidth', 1.5);
+hold off;
+
+title('Convergence Comparison: Custom CG vs. In-built PCG');
+xlabel('Iterations');
+ylabel('Residual');
+legend('Custom CG (myCG)', 'In-built PCG', 'Location', 'northeast');
+grid on;
