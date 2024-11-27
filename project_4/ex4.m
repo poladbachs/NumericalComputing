@@ -21,7 +21,7 @@ Q = ichol(height_A, options);
 [x_myCG, rvec_myCG] = myCG(A, b, guess, max_itr, tol);
 
 % PCG
-[x_pcg, ~, ~, iter, rvec_pcg] = pcg(height_A, height_B, tol, max_itr, Q, Q');
+[x_pcg, ~, ~, ~, rvec_pcg] = pcg(height_A, height_B, tol, max_itr, Q, Q');
 
 figure;
 imagesc(reshape(img, [height, height]));
