@@ -1,0 +1,28 @@
+function [x, rvec] = myCG(A, b, x0, max_itr, tol)
+    % Initialize variables
+    x = x0;
+    r = b - A * x0;    % Initial residual
+    d = r;             % Initial search direction
+    rvec = [];         % Residual norms storage
+    rho_old = dot(r, r);  % Initial rho value
+    
+    % Iterative process
+    for k = 1:max_itr
+        s = A * d;                     % Matrix-vector product
+        alpha = rho_old / dot(d ,s);    % Step size
+        x = x + alpha * d;             % Update solution
+        r = r - alpha * s;             % Update residual
+        rho_new = dot(r, r);              % Compute new rho
+        rvec = [rvec, rho_new];  % Store residual norm
+        
+        % Check convergence
+        if sqrt(rho_new) <= tol
+            fprintf('Converged at iteration %d\n', k);
+            break;
+        end
+        
+        beta = rho_new / rho_old;  % Update beta
+        d = r + beta * d;          % Update search direction
+        rho_old = rho_new;         % Update rho
+    end
+end
