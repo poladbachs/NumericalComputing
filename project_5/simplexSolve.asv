@@ -83,9 +83,11 @@ while(optCheck~=tol)
     
     % Detect inefficient looping if nIter > total number of basic solutions
     nIter = nIter + 1;
+    fprintf("Index In: %d\n", index_in);
+    fprintf("Index Out: %d\n", index_out);
     if nIter > itMax
         warning('Iteration limit exceeded. Stopping to avoid infinite loop.');
-        return;
+        return; % Exit the function gracefully
     end
 
     % TODO: Compute the new x_B

@@ -37,20 +37,16 @@ disp('Optimal Allocation:');
 disp(result);
 disp(['Maximum Profit: ', num2str(z)]);
 
-% Create categories for compartments
 compartments = categorical({'S1', 'S2', 'S3', 'S4'});
 compartments = reordercats(compartments, {'S1', 'S2', 'S3', 'S4'});
 
-% Stacked bar chart
 figure;
 bar(compartments, result', 'stacked');
 
-% Customizations
 xlabel('Compartments', 'FontSize', 14);
 ylabel('Allocation (tons)', 'FontSize', 14);
 title('Cargo Allocation Across Compartments', 'FontSize', 16);
 
-% Explicitly reorder legend to start with C1 to C4
 legend({'C1', 'C2', 'C3', 'C4'}, 'Location', 'northeastoutside', 'NumColumns', 1);
 
 grid on;
