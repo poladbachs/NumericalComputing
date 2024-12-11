@@ -9,26 +9,30 @@ BiD = B\D;
 Bih = B\h;
 
 % TODO: Compute the reduced cost coefficients
-%r_D = 
+r_D = c_D - c_B * BiD;
 
 tol = max(size(r_D)); % the optimality condition is satisfied if all reduced cost coefficients are positive or negative (depending on the problem)
 
 % TODO: Check the optimality condition, in order to skip the loop if the solution is already optimal)
 if(strcmp(type,'max'))
-    %optCheck = 
+    optCheck = all(r_D <= 0);
 elseif(strcmp(type,'min'))
-    %optCheck = 
+    optCheck = all(r_D >= 0);
 else
     error('Incorrect type specified. Choose either a maximisation (max) or minimisation (min) problem.')
 end
 
 while(optCheck~=tol)
+    disp(x_B);
+    if optCheck
+        break;
+    end
 
     % TODO: Find the index of the entering variable
     if(strcmp(type,'max'))
-        %idxIN = 
+        [~, idxIN] = max(r_D);
     elseif(strcmp(type,'min'))
-        %idxIN = 
+        [~, idxIN] = min(r_D);
     else
         error('Incorrect type specified. Choose either a maximisation (max) or minimisation (min) problem.')
     end
@@ -39,35 +43,40 @@ while(optCheck~=tol)
     index_in = index_D(1,idxIN);
     
     % TODO: Evaluate the coefficients ratio for the column corresponding to the entering variable
-    %ratio = 
-    
+    ratio = Bih./BiD(:,idxIN);
+
     % TODO: Find the smallest positive ratio
-    %idxOUT = 
+    for i = 1:length(ratio)
+        if(ratio(i,1)<0)
+            ratio(i,1) = Inf;
+        end
+    end
+    idxOUT = find(ratio==min(ratio));
     
     out = B(:,idxOUT);
     c_out = c_B(1,idxOUT);
     index_out = index_B(1,idxOUT);
     
     % TODO: Update the matrices by exchanging the columns
-    %B(:,idxOUT) =
-    %D(:,idxIN) =
-    %c_B(1,idxOUT) =
-    %c_D(1,idxIN) =
-    %index_B(1,idxOUT) =
-    %index_D(1,idxIN) =
+    B(:,idxOUT) = in;
+    D(:,idxIN) = out;
+    c_B(1,idxOUT) = c_in;
+    c_D(1,idxIN) = c_out;
+    index_B(1,idxOUT) = index_in;
+    index_D(1,idxIN) = index_out;
      
     % Compute B^{-1}*D and B^{-1}*h
     BiD = B\D;
     Bih = B\h;
     
     % TODO: Compute the reduced cost coefficients
-    %r_D = 
+    r_D = c_D - (c_B * BiD);
 
     % TODO: Check the optimality condition 
     if(strcmp(type,'max'))
-        %optCheck = 
+        optCheck = all(r_D <= 0);
     elseif(strcmp(type,'min'))
-        %optCheck = 
+        optCheck = all(r_D >= 0);
     else
         error('Incorrect type specified. Choose either a maximisation (max) or minimisation (min) problem.')
     end
@@ -79,8 +88,7 @@ while(optCheck~=tol)
     end
 
     % TODO: Compute the new x_B
-    %x_B = 
-
+    x_B = Bih - (BiD * x_D); 
 end
 
 end
